@@ -1,0 +1,15 @@
+#link
+{
+    all: unset;
+}
+#main
+{
+    text-align: center;
+    margin-top:15em;
+    border: 1em solid skyblue;
+    width:40em;
+    margin-left: 20em;
+    margin-right:20em;
+    padding: 2em;
+    
+}
