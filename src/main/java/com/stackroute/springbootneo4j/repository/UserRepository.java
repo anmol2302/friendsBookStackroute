@@ -20,5 +20,7 @@ public interface UserRepository extends Neo4jRepository<User,Long> {
     List<String>getAllUserEmails();
     @Query("MATCH (n) detach delete n")
      List<User> deleteAllUsers();
+    @Query("MATCH (a:User), (b:User) WHERE a.email ={userEmail1} AND b.email ={userEmail2} CREATE (a)-[r: friend]->(b) CREATE (a)<-[f: friend]-(b) RETURN a,b ")
+    List<User> createRelationship(@Param("userEmail1") String emailUser1,@Param("userEmail2") String emailUser2 );
 
 }
