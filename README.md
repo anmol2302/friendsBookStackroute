@@ -20,7 +20,7 @@ http://localhost:7474/browser
 
 ## Cypher Queries for Neo4J
 - Creation of User nodes:
-
+CREATE {nodeName}
 ```
 
 ```
