@@ -107,7 +107,7 @@ e.printStackTrace();
 
         try{
             System.out.println("the maisl os "+user.getEmail());
-            return new ResponseEntity<Boolean>(userService.valdiateUserEmail(user.getEmail()),HttpStatus.OK);
+            return new ResponseEntity<User>(userService.valdiateUserEmail(user.getEmail()),HttpStatus.OK);
         }
 
         catch(Exception e){

@@ -62,21 +62,26 @@ public class UserService {
     }
 
 
-    public boolean valdiateUserEmail(String emailToBeValidated) {
+    public User valdiateUserEmail(String emailToBeValidated) {
 
         boolean isFound = false;
         try {
-
-
             System.out.println(Arrays.toString(userRepository.getAllUserEmails().toArray()));
-
             isFound = userRepository.getAllUserEmails().contains(emailToBeValidated);
+            if(isFound){
+
+                return userRepository.getUserByValidLogin(emailToBeValidated);
+            }
+
+            else{
+
+
+                return null;
+            }
 
         } catch (Exception e) {
-            return false;
+            return null;
         }
-
-        return isFound;
     }
 
     public boolean deleteAllUsers() {
@@ -91,8 +96,5 @@ public class UserService {
         }
 
     }
-
-
-
 
 }
