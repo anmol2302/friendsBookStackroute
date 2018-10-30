@@ -97,4 +97,33 @@ public class UserService {
 
     }
 
-}
+
+
+    public List<User> getFirstLevelRecommendation(long id) {
+
+        try {
+            User user = userRepository.findOne(id);
+            return userRepository.getFirstLevelRecommendation(user.getName(), user.getEmail());
+        } catch (Exception e) {
+
+
+            return null;
+        }
+    }
+        public List<User> getSecondeLevelRecommendation(long id) {
+
+            try {
+                User user = userRepository.findOne(id);
+                return userRepository.getSecondeLevelRecommendations(user.getName(), user.getEmail());
+            } catch (Exception e) {
+
+
+                return null;
+            }
+        }
+
+
+
+        }
+
+

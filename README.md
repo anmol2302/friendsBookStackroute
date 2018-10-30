@@ -1,5 +1,5 @@
 # Spring Boot with SpringData Neo4J
-Users rate different movies (like IMDB). Hence Users will have RATED relationship on Movies.
+Application to add user in social media
 
 ## Version used
 - Spring Boot - 1.5.14.RELEASE
@@ -19,28 +19,17 @@ http://localhost:7474/browser
 ```
 
 ## Cypher Queries for Neo4J
-- Creation of Movie and User nodes:
-
+- Creation of User nodes:
 ```
-CREATE (Inception:Movie {title: 'Inception', director: 'Christopher Nolan'})
-CREATE (DarkKnight:Movie {title: 'The Dark Knight', director: 'Christopher Nolan'})
-CREATE (Peter:User {name: 'Peter N', age: 30})
-CREATE (Sam:User {name: 'Sam Sheldon', age: 20})
-CREATE (Ryan:User {name: 'Ryan A', age: 35})
+CREATE {nodeName}
 
-CREATE
-(Inception)-[:RATED {rating: 9}]->(Peter),
-(Inception)-[:RATED {rating: 8}]->(Sam),
-(DarkKnight)-[:RATED {rating: 9}]->(Sam),
-(DarkKnight)-[:RATED {rating: 8}]->(Peter)
 
-;
 ```
 - Adding new relationship
 
 ```
-MATCH (DarkKnight:Movie {title: 'The Dark Knight'}), (Ryan:User)
-CREATE
-(DarkKnight)-[:RATED {rating: 8}]->(Ryan)
-;
+MATCH (a:User),(b:User)
+WHERE a.name ='gautham' AND b.name = 'anmol'
+CREATE  (a)-[r:FRIEND_OF]->(b)
+CREATE  (a)<-[f:FRIEND_OF]-(b);
 ```

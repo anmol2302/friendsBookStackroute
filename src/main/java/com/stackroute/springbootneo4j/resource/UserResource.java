@@ -130,7 +130,37 @@ e.printStackTrace();
 
     }
 
+@GetMapping("/getFirstLevelRecommendations/{id}")
+    public  ResponseEntity<?> getFirstLevelRecommendations(@PathVariable("id") long id)
+{
+
+    try{
+
+        return new ResponseEntity<List<User>>(userService.getFirstLevelRecommendation(id),HttpStatus.OK);
+    }
+
+    catch (Exception e){
 
 
+        return new ResponseEntity<Boolean>(false,HttpStatus.CONFLICT);
+    }
+
+}
+    @GetMapping("/getSecondLevelRecommendations/{id}")
+    public  ResponseEntity<?> getSecondLevelRecommendations(@PathVariable("id") long id)
+    {
+
+        try{
+
+            return new ResponseEntity<List<User>>(userService.getSecondeLevelRecommendation(id),HttpStatus.OK);
+        }
+
+        catch (Exception e){
+
+
+            return new ResponseEntity<Boolean>(false,HttpStatus.CONFLICT);
+        }
+
+    }
 
 }
